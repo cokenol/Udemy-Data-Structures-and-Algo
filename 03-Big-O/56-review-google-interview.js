@@ -1,4 +1,4 @@
-// Naive
+// Naive O(n^2) - Time Complex
 function hasPairWithSum(arr, sum) {
   let len = arr.length
   for (let i = 0; i < len - 1; i++) {
@@ -11,7 +11,7 @@ function hasPairWithSum(arr, sum) {
   return false
 }
 
-// better
+// better O(n) - Time Complex
 function hasPairWithSum2(arr, sum) {
   const mySet = new Set()
   const len = arr.length
