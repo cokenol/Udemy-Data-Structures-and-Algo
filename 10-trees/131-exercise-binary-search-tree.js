@@ -46,7 +46,7 @@ class BinarySearchTree {
         currentNode = currentNode.left
       }
     }
-    return null
+    return false
   }
   // remove
 }
@@ -68,7 +68,9 @@ tree.insert(170)
 tree.insert(15)
 tree.insert(1)
 console.log(JSON.stringify(traverse(tree.root)))
-console.log(tree.lookup(1))
+console.log(1, tree.lookup(1))
+console.log(4, tree.lookup(4))
+console.log(56, tree.lookup(56))
 //       9
 //    4     20
 //  1  6  15  170
