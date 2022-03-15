@@ -1,4 +1,4 @@
-function insertionSort(arr) {
+function selectionSort(arr) {
   for (let i = 0; i < arr.length; i++) {
     let j = i + 1
     let min = [arr[i], i]
@@ -20,9 +20,9 @@ function insertionSort(arr) {
 
 arr = [8, 6, 1, 10, 5, 4, 3, 2, 7, 9]
 
-insertionSort(arr)
+selectionSort(arr)
 console.log(arr)
 
 const num = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0]
-insertionSort(num)
+selectionSort(num)
 console.log(num)
