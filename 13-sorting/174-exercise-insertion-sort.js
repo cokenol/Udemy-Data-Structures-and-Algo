@@ -1,5 +1,6 @@
 // instructor method using arrays
 function insertionSortIns(array) {
+  let start = process.hrtime()
   const length = array.length
   for (let i = 0; i < length; i++) {
     if (array[i] < array[0]) {
@@ -15,11 +16,14 @@ function insertionSortIns(array) {
       }
     }
   }
+  let stop = process.hrtime(start)
+  console.log(`Time Taken to execute ${array.length} entries: ${(stop[0] * 1e6 + stop[1]) / 1e6} milliseconds :Instructor function`)
   return array
 }
 
 // My insertion sort using Linked Lists
 function insertionSort(arr) {
+  let start = process.hrtime()
   let minNode = new Node(arr[0])
   for (let i = 1; i < arr.length; i++) {
     const newNode = new Node(arr[i])
@@ -47,6 +51,8 @@ function insertionSort(arr) {
       counter++
     }
   }
+  let stop = process.hrtime(start)
+  console.log(`Time Taken to execute ${arr.length} entries: ${(stop[0] * 1e6 + stop[1]) / 1e6} milliseconds :My function`)
   return printList(minNode)
 }
 
@@ -65,10 +71,21 @@ function printList(List) {
   }
   return newArr
 }
-arr = [8, 6, 1, 10, 5, 4, 3, 2, 7, 9]
+arr = [8, 6, 1, 10, 5, 4, 3, 2, 7, 9, 10, 1]
 
-console.log(...insertionSortIns(arr))
+console.log(...insertionSort(arr))
+console.log(...insertionSortIns(arr), "\n====================\n")
 
 num = [6, 5, 3, 1, 8, 7, 2, 4]
 
-console.log(...insertionSortIns(num))
+console.log(...insertionSort(num))
+console.log(...insertionSortIns(num), "\n====================\n")
+
+let bigArr = []
+for (let i = 0; i < 50000; i++) {
+  bigArr.push(Math.round(Math.random() * 100))
+}
+
+insertionSort(bigArr)
+insertionSortIns(bigArr)
+console.log("\n====================\n")
