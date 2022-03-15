@@ -17,7 +17,7 @@ function insertionSortIns(array) {
     }
   }
   let stop = process.hrtime(start)
-  console.log(`Time Taken to execute ${array.length} entries: ${(stop[0] * 1e6 + stop[1]) / 1e6} milliseconds :Instructor function`)
+  console.log(`Time Taken to execute ${length} entries: ${(stop[0] * 1e9 + stop[1]) / 1e6} milliseconds :Instructor function`)
   return array
 }
 
@@ -25,7 +25,8 @@ function insertionSortIns(array) {
 function insertionSort(arr) {
   let start = process.hrtime()
   let minNode = new Node(arr[0])
-  for (let i = 1; i < arr.length; i++) {
+  const length = arr.length
+  for (let i = 1; i < length; i++) {
     const newNode = new Node(arr[i])
     let counter = 0
     let currentNode = minNode
@@ -52,7 +53,7 @@ function insertionSort(arr) {
     }
   }
   let stop = process.hrtime(start)
-  console.log(`Time Taken to execute ${arr.length} entries: ${(stop[0] * 1e6 + stop[1]) / 1e6} milliseconds :My function`)
+  console.log(`Time Taken to execute ${length} entries: ${(stop[0] * 1e9 + stop[1]) / 1e6} milliseconds :My function`)
   return printList(minNode)
 }
 
@@ -73,8 +74,8 @@ function printList(List) {
 }
 arr = [8, 6, 1, 10, 5, 4, 3, 2, 7, 9, 10, 1]
 
-console.log(...insertionSort(arr))
-console.log(...insertionSortIns(arr), "\n====================\n")
+console.log(...insertionSortIns(arr))
+console.log(...insertionSort(arr), "\n====================\n")
 
 num = [6, 5, 3, 1, 8, 7, 2, 4]
 
@@ -82,8 +83,8 @@ console.log(...insertionSort(num))
 console.log(...insertionSortIns(num), "\n====================\n")
 
 let bigArr = []
-for (let i = 0; i < 50000; i++) {
-  bigArr.push(Math.round(Math.random() * 100))
+for (let i = 0; i < 75000; i++) {
+  bigArr.push(Math.round(Math.random() * 1000))
 }
 
 insertionSort(bigArr)
