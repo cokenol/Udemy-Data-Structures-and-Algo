@@ -20,18 +20,18 @@ function quickSort(arr) {
   return quickSort(left).concat(pivot).concat(quickSort(right))
 }
 
-const num = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0, 0, 45, 1000]
+const num = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0, 0, 45, 14]
 
 console.log(...num)
 console.log(...quickSort(num), "\n===========================\n")
 
-// let nums = []
-// for (let i = 0; i < 1000; i++) {
-//   nums.push(Math.round(Math.random() * 100))
-// }
+let nums = []
+for (let i = 0; i < 20; i++) {
+  nums.push(Math.round(Math.random() * 100))
+}
 
-// console.log(...nums, "\n===========================\n")
-// console.log(nums.length)
+console.log("\n===========================\n", nums.length)
+console.log(...nums)
 
-// console.log(quickSort(nums).length)
-// console.log(...quickSort(nums), "\n===========================\n")
+console.log(...quickSort(nums))
+console.log(quickSort(nums).length, "\n===========================\n")
