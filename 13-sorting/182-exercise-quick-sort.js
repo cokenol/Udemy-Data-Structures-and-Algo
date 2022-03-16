@@ -14,24 +14,24 @@ function quickSort(arr) {
   }
   // console.log("left=", ...left, "right=", ...right)
   // console.log(...left.concat(pivot).concat(right), "\n======================\n")
-  if (arr.length <= 3) {
+  if (arr.length <= 2) {
     return left.concat(pivot).concat(right)
   }
   return quickSort(left).concat(pivot).concat(quickSort(right))
 }
 
-const num = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0, 45]
+const num = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0, 0, 45, 1000]
 
 console.log(...num)
 console.log(...quickSort(num), "\n===========================\n")
 
-let nums = []
-for (let i = 0; i < 1000; i++) {
-  nums.push(Math.round(Math.random() * 100))
-}
+// let nums = []
+// for (let i = 0; i < 1000; i++) {
+//   nums.push(Math.round(Math.random() * 100))
+// }
 
-console.log(...nums, "\n===========================\n")
-console.log(nums.length)
+// console.log(...nums, "\n===========================\n")
+// console.log(nums.length)
 
-console.log(quickSort(nums).length)
-console.log(...quickSort(nums), "\n===========================\n")
+// console.log(quickSort(nums).length)
+// console.log(...quickSort(nums), "\n===========================\n")
