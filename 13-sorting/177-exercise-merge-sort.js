@@ -12,20 +12,20 @@ function mergeSort(array) {
 
 function merge(left, right) {
   let merged = []
-  // console.log("left", left, "right", right)
-  while (left.length > 0 || right.length > 0) {
-    if (left.length === 0 && right.length > 0) {
-      merged.push(right.shift())
-    } else if (left.length > 0 && right.length === 0) {
-      merged.push(left.shift())
-    } else if (left[0] > right[0]) {
-      merged.push(right.shift())
+  let leftIndex = 0
+  let rightIndex = 0
+  console.log("left", left, "right", right)
+  while (leftIndex < left.length && rightIndex < right.length) {
+    if (left[leftIndex] < right[rightIndex]) {
+      merged.push(left[leftIndex])
+      leftIndex++
     } else {
-      merged.push(left.shift())
+      merged.push(right[rightIndex])
+      rightIndex++
     }
   }
-  // console.log("merged=", ...merged, "\n=====================\n")
-  return merged
+  console.log("merged=", ...merged, "\n=====================\n")
+  return merged.concat(left.slice(leftIndex)).concat(right.slice(rightIndex))
 }
 
 const num = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0]
@@ -39,5 +39,5 @@ for (let i = 0; i < 1000; i++) {
   nums.push(Math.round(Math.random() * 100))
 }
 
-console.log(...nums, "\n")
-console.log(...mergeSort(nums), "\n=============================\n")
+// console.log(...nums, "\n")
+// console.log(...mergeSort(nums), "\n=============================\n")
