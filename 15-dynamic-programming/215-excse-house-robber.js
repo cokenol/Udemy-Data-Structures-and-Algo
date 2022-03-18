@@ -16,10 +16,27 @@ var rob = function (nums) {
     // Compare current max with the previous max
     // Check if the money from the current house + max of 2 houses away is greater than the current max
     dp[i] = Math.max(dp[i - 2] + nums[i], dp[i - 1])
+
     console.log("i=", i, "nums[i]=", nums[i], "\n", "dp[i - 2] + nums[i]=", dp[i - 2] + nums[i], "dp[i - 1]=", dp[i - 1], "\n", "dp", ...dp, "\n")
   }
   return dp[nums.length - 1]
 }
-arr = [2, 4, 18, 9, 9, 3, 8]
+
+// Faster, shorter solution found on leetcode 44ms
+var rob2 = function (nums) {
+  let last1 = 0,
+    last2 = 0
+  nums.forEach(v => {
+    console.log("last1=", last1)
+    const current = Math.max(last1, last2 + v)
+    last2 = last1
+    last1 = current
+  })
+
+  return last1
+}
+
+arr = [2, 13, 1, 1, 1, 13, 6]
 
 console.log(rob(arr))
+console.log(rob2(arr))
