@@ -1,18 +1,19 @@
 // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233...
 
-let calculations = 0
+let calculationsNP = 0
 function fibonacci(n) {
-  calculations++
+  calculationsNP++
   if (n < 2) {
     return n
   }
   return fibonacci(n - 1) + fibonacci(n - 2)
 }
 
+let calculationsDP = 0
 function fibMaster() {
   let cache = {}
   return function fib(n) {
-    calculations++
+    calculationsDP++
     if (n in cache) {
       return cache[n]
     } else {
@@ -28,5 +29,7 @@ function fibMaster() {
 
 const fasterFib = fibMaster()
 
-console.log("DP", fasterFib(100))
-console.log("We did " + calculations)
+console.log("Slow", fibonacci(30))
+console.log("We did " + calculationsNP)
+console.log("DP", fasterFib(20))
+console.log("We did " + calculationsDP)
