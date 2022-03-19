@@ -28,6 +28,15 @@ function fibMaster() {
   }
 }
 
+// Bottom up approach
+function fibMaster2() {
+  let answer = [0, 1]
+  for (let i = 2; i <= n; i++)2{
+    answer.push(answer[i-2] + answer[i-1])
+  }
+  return answer.pop()
+}
+
 const fasterFib = fibMaster()
 
 console.log("Slow", fibonacci(30))
